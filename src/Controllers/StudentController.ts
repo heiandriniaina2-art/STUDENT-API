@@ -13,7 +13,7 @@ export const getAllStudents = (req: Request, res: Response, next: NextFunction):
 
 export const getStudentById = (req: Request, res: Response, next: NextFunction): void => {
     try {
-        const id = parseInt(req.params['id'], 10);
+        const id = parseInt(<string>req.params['id'], 10);
         const student = studentRepository.findById(id);
 
         if (!student) {
@@ -47,7 +47,7 @@ export const createStudent = (req: Request, res: Response, next: NextFunction): 
 
 export const updateStudent = (req: Request, res: Response, next: NextFunction): void => {
     try {
-        const id = parseInt(req.params['id'], 10);
+        const id = parseInt(<string>req.params['id'], 10);
         const updatedStudent = studentRepository.update(id, req.body);
 
         if (!updatedStudent) {
@@ -64,7 +64,7 @@ export const updateStudent = (req: Request, res: Response, next: NextFunction): 
 
 export const deleteStudent = (req: Request, res: Response, next: NextFunction): void => {
     try {
-        const id = parseInt(req.params['id'], 10);
+        const id = parseInt(<string>req.params['id'], 10);
         const deleted = studentRepository.delete(id);
 
         if (!deleted) {
