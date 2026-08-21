@@ -1,1 +1,3 @@
-import { Student } from '../Model/StudentModel';\n\nexport interface IStudentService {\n  getStudentById(id: string): Promise<Student | null>;\n}
+export interface CustomError extends Error {
+    statusCode?: number;
+}

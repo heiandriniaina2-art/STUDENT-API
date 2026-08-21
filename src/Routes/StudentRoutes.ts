@@ -1,1 +1,13 @@
-import { StudentController } from '../Controllers/StudentController';\n\nexport class StudentRoutes {\n  // Vos routes API pour les étudiants viendront ici\n}
+import { Router } from 'express';
+import { getAllStudents, getStudentById, createStudent, updateStudent, deleteStudent } from '../Controllers/StudentController';
+
+const router = Router();
+
+router.get('/', getAllStudents);
+router.get('/:id', getStudentById);
+router.post('/', createStudent);
+router.put('/:id', updateStudent);
+router.delete('/:id', deleteStudent);
+
+export default router;
+
